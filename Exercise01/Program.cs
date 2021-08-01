@@ -8,23 +8,25 @@ namespace Exercise01
         static void Main(string[] args)
         {
             ConsoleKeyInfo cki;
-            string regex;
+            string pattern;
             do
             {
                 Console.WriteLine("Enter a regular expression (or press ENTER to use the default): ^[a-z]+$");
-                regex = Console.ReadLine();
+                pattern = Console.ReadLine();
                 Console.WriteLine("Enter some input:");
                 string input = Console.ReadLine();
 
-                if (string.IsNullOrWhiteSpace(regex))
+                if (string.IsNullOrWhiteSpace(pattern))
                 {
-                    regex = "^[a-z]+$";
-                    bool match = Regex.Match(input, regex).Success;
+                    pattern = @"^[a-z]+$";
+                    Regex regex = new Regex(pattern);
+                    bool match = regex.IsMatch(input);
                     Console.WriteLine($"{input} matches {regex}? {match}");
                 }
                 else
                 {
-                    bool match = Regex.Match(input, regex).Success;
+                    Regex regex = new Regex(@pattern);
+                    bool match = regex.IsMatch(input);
                     Console.WriteLine($"{input} matches {regex}? {match}");
                 }
                 Console.WriteLine("Press ESC to end or any key to try again.");
