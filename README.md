@@ -1,6 +1,27 @@
-### Question 2
+## Question 1
+Create a console application named Exercise01 that prompts the user to enter a regular expression, and then prompts the user to enter some input and compare the two for a match until the user presses ESC, as shown in the following output:
 
-Create a console application named Exercise 04 that creates a list of shapes, uses serialization to save it to the filesystem using XML, and then deserializes it back:
+The default regular expression checks for at least one digit.
+
+```
+The default regular expression checks for at least one digit.
+Enter a regular expression (or press ENTER to use the default): ^[a-z]+$
+Enter some input: apples
+apples matches ^[a-z]+$? True
+Press ESC to end or any key to try again.
+Enter a regular expression (or press ENTER to use the default): ^[a-z]+$
+Enter some input: abc123xyz
+abc123xyz matches ^[a-z]+$? False
+Press ESC to end or any key to try again.
+```
+
+Create a class library named Exercise02 that defines extension methods that extend number types such as BigInteger and int with a method named ToWords that returns a string describing the number; for example 18,000,000 would be eighteen million, and 18,456,002,032,011,000,007 would be eighteen quintillion, four hundred and fifty six quadrillion, two trillion, thirty two billion, eleven million, and seven
+
+Create a console application named Exercise03 that uses the class library in Exercise02 to take numeric input from the user and output the string describing the number.
+
+## Question 2
+
+Create a console application named Exercise04 that creates a list of shapes, uses serialization to save it to the filesystem using XML, and then deserializes it back:
 
 ```csharp
 // create a list of Shapes to serialize
