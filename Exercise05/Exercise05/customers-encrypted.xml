@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<customers>
+  <customer>
+    <name>Bob Smith</name>
+    <creditcard>cqS7JXLkpNB8LMyiCih6LA/2+v6RcQLl45EWUmOqIgeh3/ClJ8ORspxjMt5ExYrY</creditcard>
+    <password>p/1u4z9ZOdeCSGiPt7l+Hun4Ih8GGRvnT/wY3DwfgRA=</password>
+  </customer>
+  <customer>
+    <name>Poppy Smith</name>
+    <creditcard>FMIggS7JG8BVu8gJF2Z42pJkKx2RW0YPpgJd+VVbVH3lypsU1swoGEDawNRq8xZM</creditcard>
+    <password>RpXvDbwH9AucUIl+eABOAKx0om+6sHxcxPbukl+dAzI=</password>
+  </customer>
+  <customer>
+    <name>Ryan Smith</name>
+    <creditcard>omV7BwijS8ppkkc6UkAGwElACDMPPEg64Bb9olkG7VOZiZtPGzXxn5kZzkxO+pPb</creditcard>
+    <password>3pt570sUCqBBwLkdk8tmD9NrAYYYCHKfBTSThAKD2I0=</password>
+  </customer>
+</customers>

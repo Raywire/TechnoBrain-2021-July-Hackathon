@@ -41,3 +41,20 @@ foreach (Shape item in loadedShapesXml)
   WriteLine("{0} is {1} and has an area of {2:N2}", item.GetType().Name, item.Colour, item.Area);
 }
 ```
+### Question 3
+Create a console application named Exercise05 that protects an XML file, such as the following example:
+```xml
+<?xml version="1.0" encoding="utf-8" ?>
+<customers>
+  <customer>
+    <name>Bob Smith</name>
+    <creditcard>1234-5678-9012-3456</creditcard>
+    <password>Pa$$w0rd</password>
+  </customer>
+...
+</customers>
+
+```
+The customer's credit card number and password are currently stored in clear text. The credit card number must be encrypted so that it can be decrypted and used later, and the password must be salted and hashed.
+
+Create a console application named Exercise06 that opens the XML file that you protected in the preceding code and decrypts the credit card number.
