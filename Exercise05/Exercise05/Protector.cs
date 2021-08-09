@@ -12,12 +12,12 @@ namespace Exercise05
         public static string Encrypt (string plainText, string password)
         {
             byte[] plainBytes = Encoding.Unicode.GetBytes(plainText);
-            var aes = Aes.Create();
-            var pbkdf2 = new Rfc2898DeriveBytes(password, salt, iterations);
+            Aes aes = Aes.Create();
+            Rfc2898DeriveBytes pbkdf2 = new Rfc2898DeriveBytes(password, salt, iterations);
             aes.Key = pbkdf2.GetBytes(32);
             aes.IV = pbkdf2.GetBytes(16);
-            var ms = new MemoryStream();
-            using (var cs = new CryptoStream(ms, aes.CreateEncryptor(), CryptoStreamMode.Write))
+            MemoryStream ms = new MemoryStream();
+            using (CryptoStream cs = new CryptoStream(ms, aes.CreateEncryptor(), CryptoStreamMode.Write))
             {
                 cs.Write(plainBytes, 0, plainBytes.Length);
             };
@@ -28,14 +28,14 @@ namespace Exercise05
         public static User SaltAndHashPassword (string password)
         {
             // generate a random salt
-            var rng = RandomNumberGenerator.Create();
-            var saltBytes = new byte[16];
+            RandomNumberGenerator rng = RandomNumberGenerator.Create();
+            byte[] saltBytes = new byte[16];
             rng.GetBytes(saltBytes);
-            var saltText = Convert.ToBase64String(saltBytes);
+            string saltText = Convert.ToBase64String(saltBytes);
             // generate the salted and hashed password
-            var sha = SHA256.Create();
-            var saltedPassword = password + saltText;
-            var saltedhashedPassword = Convert.ToBase64String(
+            SHA256 sha = SHA256.Create();
+            string saltedPassword = password + saltText;
+            string saltedhashedPassword = Convert.ToBase64String(
             sha.ComputeHash(Encoding.Unicode.GetBytes(saltedPassword)));
 
             User user = new User
