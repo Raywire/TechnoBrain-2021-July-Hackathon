@@ -58,3 +58,23 @@ Create a console application named Exercise05 that protects an XML file, such as
 The customer's credit card number and password are currently stored in clear text. The credit card number must be encrypted so that it can be decrypted and used later, and the password must be salted and hashed.
 
 Create a console application named Exercise06 that opens the XML file that you protected in the preceding code and decrypts the credit card number.
+
+### Question 4
+Create a console application named Exercise07 that queries the Northwind database for all the categories and products, and then serializes the data using at least three formats of serialization available to .NET.
+
+Create a console application, named Exercise08, that prompts the user for a city and then lists the company names for Northwind customers in that city, as show in the following output
+```
+Enter the name of a city: London
+There are 6 customers in London:
+Around the Horn
+B's Beverages
+Consolidated Holdings
+Eastern Connection
+North/South
+Seven Seas Imports
+```
+
+Then, enhance the application by displaying a list of all unique cities that customers already reside in as a prompt to the user before they enter their preferred city, as shown in the following output:
+```
+Aachen, Albuquerque, Anchorage, Århus, Barcelona, Barquisimeto, Bergamo, Berlin, Bern, Boise, Bräcke, Brandenburg, Bruxelles, Buenos Aires, Butte, Campinas, Caracas, Charleroi, Cork, Cowes, Cunewalde, Elgin, Eugene, Frankfurt a.M., Genève, Graz, Helsinki, I. de Margarita, Kirkland, Kobenhavn, Köln, Lander, Leipzig, Lille, Lisboa, London, Luleå, Lyon, Madrid, Mannheim, Marseille, México D.F., Montréal, München, Münster, Nantes, Oulu, Paris, Portland, Reggio Emilia, Reims, Resende, Rio de Janeiro, Salzburg, San Cristóbal, San Francisco, Sao Paulo, Seattle, Sevilla, Stavern, Strasbourg, Stuttgart, Torino, Toulouse, Tsawassen, Vancouver, Versailles, Walla Walla, Warszawa
+```
