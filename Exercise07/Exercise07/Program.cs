@@ -7,6 +7,8 @@ using System.Xml.Serialization;
 using static System.IO.Path;
 using static System.Environment;
 using System.Text.Json;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Runtime.Serialization;
 
 namespace Exercise07
 {
@@ -35,6 +37,26 @@ namespace Exercise07
             Console.WriteLine("JSON Serialization complete");
         }
 
+        static void SerializeToBinary(List<Category> categories)
+        {
+            string binaryFile = Combine(CurrentDirectory, "categories.dat");
+
+            using (FileStream fileStream = File.Create(binaryFile))
+            {
+                BinaryFormatter formatter = new BinaryFormatter();
+                try
+                {
+                    formatter.Serialize(fileStream, categories);
+                    Console.WriteLine("Binary Serialization complete");
+                }
+                catch (SerializationException e)
+                {
+                    Console.WriteLine("Failed to serialize. Reason: " + e.Message);
+                    throw;
+                }
+            }
+        }
+
         static void QueryingCategories()
         {
             using (var db = new Northwind())
@@ -47,6 +69,9 @@ namespace Exercise07
 
                 // Serialize to JSON
                 SerializeToJson(categories.ToList());
+
+                // Serialize to Binary
+                SerializeToBinary(categories.ToList());
             }
         }
 

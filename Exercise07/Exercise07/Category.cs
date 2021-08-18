@@ -1,8 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Exercise07
 {
+    [Serializable]
     public class Category
     {
         // these properties map to columns in the database 
