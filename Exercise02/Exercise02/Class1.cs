@@ -4,6 +4,13 @@ namespace Exercise02
 {
     public static class BigIntegerExtensions
     {
+        public static string GenerateEndPart(BigInteger value, BigInteger divider)
+        {
+            BigInteger modulus = value % divider;
+            string endPart = modulus == 0 ? "" : $"{(divider == 100 ? "and " : "")}{ConvertToWords(modulus)}";
+            return endPart;
+        }
+
         public static string ConvertToWords(BigInteger value) 
         {
             string[] uniqueDigits = new string[] {
@@ -35,63 +42,56 @@ namespace Exercise02
             if (value < 100)
             {
                 int modulus = (int)value % 10;
-                return $"{tensMultiple[((int)value / 10)]} {(modulus == 0 ? "" : uniqueDigits[modulus])}";
+                return $"{tensMultiple[(int)value / 10]} {(modulus == 0 ? "" : uniqueDigits[modulus])}";
             }
 
             // Hundred
             if (value < 1000)
             {
-                int modulus = (int)value % 100;
-                string endPart = modulus == 0 ? "" : $"and {ConvertToWords(modulus)}";
-                return $"{uniqueDigits[((int)value / 100)]} {tensPower[0]} {endPart}";
+                int divider = 100;
+                return $"{ConvertToWords(value / divider)} {tensPower[0]} {GenerateEndPart(value, divider)}";
             }
 
             // Thousand
             if (value < 1_000_000)
             {
-                int modulus = (int)value % 1_000;
-                string endPart = modulus == 0 ? "" : $"{ConvertToWords(modulus)}";
-                return $"{ConvertToWords((int)value / 1_000)} {tensPower[1]} {endPart}";
+                int divider = 1_000;
+                return $"{ConvertToWords(value / divider)} {tensPower[1]} {GenerateEndPart(value, divider)}";
             }
 
             // Million
             if (value < 1_000_000_000)
             {
-                int modulus = (int)value % 1_000_000;
-                string endPart = modulus == 0 ? "" : $"{ConvertToWords(modulus)}";
-                return $"{ConvertToWords((int)value / 1_000_000)} {tensPower[2]} {endPart}";
+                int divider = 1_000_000;
+                return $"{ConvertToWords(value / divider)} {tensPower[2]} {GenerateEndPart(value, divider)}";
             }
 
             // Billion
             if (value < 1_000_000_000_000)
             {
-                BigInteger modulus = value % 1_000_000_000;
-                string endPart = modulus == 0 ? "" : $"{ConvertToWords(modulus)}";
-                return $"{ConvertToWords(value / 1_000_000_000)} {tensPower[3]} {endPart}";
+                int divider = 1_000_000_000;
+                return $"{ConvertToWords(value / divider)} {tensPower[3]} {GenerateEndPart(value, divider)}";
             }
 
             // Trillion
             if (value < 1_000_000_000_000_000)
             {
-                BigInteger modulus = value % 1_000_000_000_000;
-                string endPart = modulus == 0 ? "" : $"{ConvertToWords(modulus)}";
-                return $"{ConvertToWords(value / 1_000_000_000_000)} {tensPower[4]} {endPart}";
+                BigInteger divider = 1_000_000_000_000;
+                return $"{ConvertToWords(value / divider)} {tensPower[4]} {GenerateEndPart(value, divider)}";
             }
 
             // Quadrillion
             if (value < 1_000_000_000_000_000_000)
             {
-                BigInteger modulus = value % 1_000_000_000_000_000;
-                string endPart = modulus == 0 ? "" : $"{ConvertToWords(modulus)}";
-                return $"{ConvertToWords(value / 1_000_000_000_000_000)} {tensPower[5]} {endPart}";
+                BigInteger divider = 1_000_000_000_000_000;
+                return $"{ConvertToWords(value / divider)} {tensPower[5]} {GenerateEndPart(value, divider)}";
             }
 
             // Quintillion
             if (value < 10_000_000_000_000_000_000)
             {
-                BigInteger modulus = value % 1_000_000_000_000_000_000;
-                string endPart = modulus == 0 ? "" : $"{ConvertToWords(modulus)}";
-                return $"{ConvertToWords(value / 1_000_000_000_000_000_000)} {tensPower[6]} {endPart}";
+                BigInteger divider = 1_000_000_000_000_000_000;
+                return $"{ConvertToWords(value / divider)} {tensPower[6]} {GenerateEndPart(value, divider)}";
             }
 
             // TODO: Add code to parse numbers over 1_000_000_000_000_000_000 here
