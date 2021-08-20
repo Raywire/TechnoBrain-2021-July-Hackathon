@@ -16,7 +16,7 @@ namespace Exercise06
             string xmlFilePath = Combine(xmlFileDirectory, "customers-encrypted.xml");
 
             string encryptionPassword = "121212";
-            List<Customer> listOfUnencryptedCustomers = new List<Customer> { };
+            List<Customer> listOfUnencryptedCustomers = new List<Customer>();
 
             // Read encrypted xml file
             using (FileStream fileStream = File.Open(xmlFilePath, FileMode.Open))
