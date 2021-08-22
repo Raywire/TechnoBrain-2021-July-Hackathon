@@ -21,21 +21,19 @@ namespace Exercise04
             };
 
             string xmlFile = Combine(CurrentDirectory, "shapes.xml");
-            FileStream fileStream = File.Create(xmlFile);
+            XmlSerializer serializerXml = new XmlSerializer(typeof(List<Shape>));
 
-            var serializerXml = new XmlSerializer(typeof(List<Shape>));
-            serializerXml.Serialize(fileStream, listOfShapes);
+            using (FileStream fileStream = File.Create(xmlFile))
+            {
+                serializerXml.Serialize(fileStream, listOfShapes);
+            }
 
-            fileStream.Close();
-
-            FileStream xmlLoad = File.Open(xmlFile, FileMode.Open);
-
+            using FileStream xmlLoad = File.Open(xmlFile, FileMode.Open);
             var loadedShapesXml = (List<Shape>)serializerXml.Deserialize(xmlLoad);
             foreach (Shape item in loadedShapesXml)
             {
                 Console.WriteLine("{0} is {1} and has an area of {2:N2}", item.GetType().Name, item.Colour, item.Area);
             }
-            xmlLoad.Close();
         }
     }
 }
