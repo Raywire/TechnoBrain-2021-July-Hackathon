@@ -34,7 +34,8 @@ var listOfShapes = new List<Shape>
   new Rectangle { Colour = "Blue", Height = 45.0, Width = 18.0 },
 }
 
-Shapes should have a read-only property named Area so that when you deserialize, you can output a list of shape, including their areas, as shown here:
+// Shapes should have a read-only property named Area so that when you deserialize,
+// you can output a list of shapes, including their areas, as shown here:
 List<Shape> loadedShapesXml = serializerXml.Deserialize(fileXml) as List<Shape>;
 foreach (Shape item in loadedShapesXml)
 {
